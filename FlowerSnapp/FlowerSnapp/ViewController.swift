@@ -9,13 +9,17 @@
 import UIKit
 import Vision
 import CoreML
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate	 {
     
     @IBOutlet weak var imageView: UIImageView!
     
     let  imagePicker = UIImagePickerController()
+    let wikipediaURl = "https://en.wikipedia.org/w/api.php"
 
+    @IBOutlet weak var about: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -49,7 +53,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
                         if let firstResult = result.first {
                                 print(firstResult.identifier)
-                                self.navigationItem.title = firstResult.identifier.capitalized
+                                let flowerName = firstResult.identifier.capitalized
+                                self.navigationItem.title = flowerName
+                                self.requestInformation(for: flowerName)
                             
                         }
             
@@ -67,8 +73,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    func requestInformation(for flowerName:String){
+        
+        let parameters : [String:String] = [
+            "format" : "json",
+            "action" : "query",
+            "prop" : "extracts",
+            "exintro" : "",
+            "explaintext" : "",
+            "titles" : flowerName,
+            "indexpageids" : "",
+            "redirects" : "1",
+            ]
 
-
+        Alamofire.request(wikipediaURl,method: .get, parameters: parameters).responseJSON { (response) in
+            if response.result.isSuccess{
+                print("Succes!")
+                let responseJSON : JSON = JSON(response.result.value!)
+                print(responseJSON)
+                let pageid = responseJSON["query"]["pageids"][0].stringValue
+                print(pageid)
+                let about = responseJSON["query"]["pages"][pageid]["extract"]
+                print(about)
+                self.about.text = about.stringValue
+            }
+        }
+    }
 
     
     
