@@ -14,6 +14,7 @@
 		B58E21AF2244E02F00C5FF52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B58E21AE2244E02F00C5FF52 /* Assets.xcassets */; };
 		B58E21B22244E02F00C5FF52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58E21B02244E02F00C5FF52 /* LaunchScreen.storyboard */; };
 		B58E21C02244F76200C5FF52 /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B58E21BF2244F76200C5FF52 /* FlowerClassifier.mlmodel */; };
+		B58E21C4224514CA00C5FF52 /* flower.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B58E21C3224514C900C5FF52 /* flower.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		B58E21B12244E02F00C5FF52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B58E21B32244E02F00C5FF52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B58E21BF2244F76200C5FF52 /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
+		B58E21C3224514C900C5FF52 /* flower.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flower.jpeg; sourceTree = "<group>"; };
 		E8E2C7CAF7B4BB31CADEBDE7 /* Pods-FlowerSnapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerSnapp.release.xcconfig"; path = "Target Support Files/Pods-FlowerSnapp/Pods-FlowerSnapp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,7 +58,6 @@
 				27B1C5C0E4B5C52273289315 /* Pods-FlowerSnapp.debug.xcconfig */,
 				E8E2C7CAF7B4BB31CADEBDE7 /* Pods-FlowerSnapp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -85,6 +86,7 @@
 				B58E21A72244E02D00C5FF52 /* AppDelegate.swift */,
 				B58E21A92244E02D00C5FF52 /* ViewController.swift */,
 				B58E21AB2244E02D00C5FF52 /* Main.storyboard */,
+				B58E21C3224514C900C5FF52 /* flower.jpeg */,
 				B58E21AE2244E02F00C5FF52 /* Assets.xcassets */,
 				B58E21B02244E02F00C5FF52 /* LaunchScreen.storyboard */,
 				B58E21B32244E02F00C5FF52 /* Info.plist */,
@@ -152,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B58E21C4224514CA00C5FF52 /* flower.jpeg in Resources */,
 				B58E21B22244E02F00C5FF52 /* LaunchScreen.storyboard in Resources */,
 				B58E21AF2244E02F00C5FF52 /* Assets.xcassets in Resources */,
 				B58E21AD2244E02D00C5FF52 /* Main.storyboard in Resources */,
@@ -171,6 +174,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FlowerSnapp/Pods-FlowerSnapp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -179,6 +183,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);

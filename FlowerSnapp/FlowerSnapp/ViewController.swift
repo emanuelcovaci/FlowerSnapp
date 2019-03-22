@@ -12,8 +12,10 @@ import CoreML
 import Alamofire
 import SwiftyJSON
 import SDWebImage
+import ChameleonFramework
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate	 {
+
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -27,6 +29,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .camera
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        guard let navBar = navigationController?.navigationBar else {fatalError("Navigation controller does not exist!")}
+        navBar.barTintColor = UIColor.flatMint()
+        
+        self.view.backgroundColor = UIColor.flatMint()
     }
     
     
@@ -101,6 +110,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let flowerImageURL = responseJSON["query"]["pages"][pageid]["thumbnail"]["source"].stringValue
                 
                 self.imageView.sd_setImage(with: URL(string: flowerImageURL))
+                
             }
         }
     }
